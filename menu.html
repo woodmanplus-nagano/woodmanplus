@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MENU｜WOODMAN PLUS</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <script
+        src="js/script.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         ヘッダー
+    ========================= -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+
+            <!-- ロゴ -->
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                WOODMAN<span>plus</span>
+
+            </a>
+
+
+
+            <!-- =========================
+                 PC用ナビゲーション
+            ========================= -->
+
+            <nav class="nav">
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a href="menu.html">
+                    MENU
+                </a>
+
+                <a href="commitment.html">
+                    COMMITMENT
+                </a>
+
+                <a href="access.html">
+                    ACCESS
+                </a>
+
+                <a href="reservation.html">
+                    RESERVATION
+                </a>
+
+                <a href="story.html">
+                    STORY
+                </a>
+
+            </nav>
+
+
+
+            <!-- =========================
+                 スマホ用メニューボタン
+            ========================= -->
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="メニューを開く"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             スマホ用メニュー
+        ========================= -->
+
+        <nav
+            class="mobile-nav"
+            id="mobileNav"
+        >
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="menu.html">
+                MENU
+            </a>
+
+            <a href="commitment.html">
+                COMMITMENT
+            </a>
+
+            <a href="access.html">
+                ACCESS
+            </a>
+
+            <a href="reservation.html">
+                RESERVATION
+            </a>
+
+            <a href="story.html">
+                STORY
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         メイン
+    ========================= -->
+
+    <main>
+
+
+        <!-- =========================
+             ページタイトル
+        ========================= -->
+
+        <section class="page-hero">
+
+            <div class="page-hero-inner">
+
+                <p class="section-label">
+
+                    WOODMAN plus MENU
+
+                </p>
+
+
+                <h1>
+
+                    MENU
+
+                </h1>
+
+
+                <p>
+
+                    信州の恵みを生かした<br>
+                    WOODMAN plusのメニューをご紹介します。
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             メニュー
+        ========================= -->
+
+        <section class="menu-section">
+
+            <div class="menu-inner">
+
+
+                <!-- =========================
+                     カテゴリーナビ
+                ========================= -->
+
+                <nav class="menu-category-nav">
+
+                    <a href="#hamburg">
+                        HAMBURG
+                    </a>
+
+                    <a href="#steak">
+                        STEAK
+                    </a>
+
+                    <a href="#drink">
+                        DRINK
+                    </a>
+
+                </nav>
+
+
+
+                <!-- =========================
+                     ハンバーグ
+                ========================= -->
+
+                <section
+                    class="menu-category"
+                    id="hamburg"
+                >
+
+                    <div class="category-title">
+
+                        <p class="section-label">
+
+                            HAMBURG
+
+                        </p>
+
+
+                        <h2>
+
+                            ハンバーグ
+
+                        </h2>
+
+                    </div>
+
+
+
+                    <div
+                        class="menu-grid"
+                        id="hamburgMenu"
+                    >
+
+                        <!-- JavaScriptで表示 -->
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =========================
+                     ステーキ
+                ========================= -->
+
+                <section
+                    class="menu-category"
+                    id="steak"
+                >
+
+                    <div class="category-title">
+
+                        <p class="section-label">
+
+                            STEAK
+
+                        </p>
+
+
+                        <h2>
+
+                            ステーキ
+
+                        </h2>
+
+                    </div>
+
+
+
+                    <div
+                        class="menu-grid"
+                        id="steakMenu"
+                    >
+
+                        <!-- JavaScriptで表示 -->
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =========================
+                     ドリンク
+                ========================= -->
+
+                <section
+                    class="menu-category"
+                    id="drink"
+                >
+
+                    <div class="category-title">
+
+                        <p class="section-label">
+
+                            DRINK
+
+                        </p>
+
+
+                        <h2>
+
+                            ドリンク
+
+                        </h2>
+
+                    </div>
+
+
+
+                    <div
+                        class="drink-list"
+                        id="drinkMenu"
+                    >
+
+                        <!-- JavaScriptで表示 -->
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         詳細モーダル
+    ========================= -->
+
+    <div
+        class="menu-modal"
+        id="menuModal"
+    >
+
+        <div class="modal-content">
+
+
+            <!-- 閉じるボタン -->
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                aria-label="閉じる"
+            >
+
+                ×
+
+            </button>
+
+
+
+            <!-- メニュー画像 -->
+
+            <img
+                id="modalImage"
+                src=""
+                alt=""
+            >
+
+
+
+            <!-- メニュー詳細 -->
+
+            <div class="modal-text">
+
+
+                <p
+                    class="modal-category"
+                    id="modalCategory"
+                ></p>
+
+
+                <h2
+                    id="modalName"
+                ></h2>
+
+
+                <p
+                    class="modal-price"
+                    id="modalPrice"
+                ></p>
+
+
+
+                <!-- 詳細情報 -->
+
+                <div class="modal-details">
+
+
+                    <p>
+
+                        <strong>ソース</strong>
+
+                        <span id="modalSauce"></span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>ライス</strong>
+
+                        <span id="modalRice"></span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>サラダ</strong>
+
+                        <span id="modalSalad"></span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>スープ</strong>
+
+                        <span id="modalSoup"></span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>その他</strong>
+
+                        <span id="modalOther"></span>
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- 説明 -->
+
+                <p
+                    class="modal-description"
+                    id="modalDescription"
+                ></p>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         フッター
+    ========================= -->
+
+    <footer class="footer">
+
+        <div class="footer-inner">
+
+
+            <!-- ロゴ -->
+
+            <div class="footer-logo">
+
+                WOODMAN<span>plus</span>
+
+            </div>
+
+
+
+            <!-- =========================
+                 フッターナビゲーション
+            ========================= -->
+
+            <nav class="footer-nav">
+
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+
+                <a href="menu.html">
+                    MENU
+                </a>
+
+
+                <a href="commitment.html">
+                    COMMITMENT
+                </a>
+
+
+                <a href="access.html">
+                    ACCESS
+                </a>
+
+
+                <a href="reservation.html">
+                    RESERVATION
+                </a>
+
+
+                <a href="story.html">
+                    STORY
+                </a>
+
+
+            </nav>
+
+
+
+            <!-- 住所・電話番号 -->
+
+            <p class="footer-address">
+
+                長野県茅野市塚原2丁目3-6<br>
+                TEL：0266-72-3813
+
+            </p>
+
+
+
+            <!-- コピーライト -->
+
+            <p class="copyright">
+
+                © WOODMAN plus
+
+            </p>
+
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
