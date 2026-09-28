@@ -2073,16 +2073,13 @@ body.modal-open {
     }
 
     .reservation-notice {
-        left: auto;
-        right: 16px;
-        top: 30px;
+        left: 70%;
         bottom: 100%;
-        bottom: auto;
 
-        margin-bottom: 0px;
-        padding: 18px 20px;
+        margin-bottom: 10px;
+        padding: 30px 50px;
 
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .menu-cards {
