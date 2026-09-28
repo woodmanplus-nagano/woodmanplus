@@ -337,14 +337,18 @@ a {
 }
 
 .reservation-notice::after {
-    left: 30px;
-        top: -10px;
-        bottom: auto;
-        transform: none;
-        border-top: none;
-        border-bottom: 10px solid #ffffff;
-        border-right: 8px solid transparent;
-        border-left: 8px solid transparent;
+    content: "";
+
+    position: absolute;
+
+    left: 30%;
+    bottom: -6px;
+
+    transform: translateX(-50%);
+
+    border-top: 12px solid #ffffff;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
 }
 
 @keyframes noticeFadeIn {
@@ -2069,16 +2073,13 @@ body.modal-open {
     }
 
     .reservation-notice {
-        position: relative; /* 絶対配置を解除してレイアウト内に収める */
-        left: auto;
-        bottom: auto;
-        display: inline-block;
-        margin: 15px 0 0 0;
-        padding: 12px 20px; /* 吹き出しの余白を適切に縮小 */
-        font-size: 14px;
-        line-height: 1.4;
-        border-radius: 20px; /* 丸みのあるシンプルな吹き出し */
-        white-space: normal; /* 文字の自動折り返しを許可 */
+        left: 70%;
+        bottom: 100%;
+
+        margin-bottom: 10px;
+        padding: 30px 50px;
+
+        font-size: 15px;
     }
 
     .menu-cards {
