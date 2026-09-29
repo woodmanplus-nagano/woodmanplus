@@ -677,6 +677,10 @@ a {
     gap: 20px;
 }
 
+.drink-item-header span:first-child {
+    font-weight: 700;
+}
+
 .drink-name {
     font-size: 17px;
     font-weight: bold;
@@ -1991,7 +1995,9 @@ body.modal-open {
     }
 
     .page-hero h1 {
-        font-size: 45px;
+        font-size: clamp(24px, 7vw, 36px);
+        letter-spacing: 0.04em;
+        overflow-wrap: anywhere;
     }
 
     .section {
@@ -2122,6 +2128,7 @@ body.modal-open {
 
     .menu-category-nav {
         gap: 8px;
+        flex-wrap: wrap;
 
         margin-bottom: 70px;
     }
@@ -2333,6 +2340,23 @@ body.modal-open {
         padding: 70px 20px;
     }
 
+    .area-access-inner {
+        overflow-x: auto;
+    }
+
+    .interactive-map {
+        min-width: 800px;
+    }
+
+    .spot-detail {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100dvh;
+        z-index: 2000;
+        background: rgba(0, 0, 0, 0.65);
+    }
+
     .map-point {
         padding: 5px 8px;
 
@@ -2346,8 +2370,9 @@ body.modal-open {
     }
 
     .spot-detail-card {
-        width: 75%;
-
+        width: min(90vw, 450px);
+        max-height: 80dvh;
+        overflow-y: auto;
         padding: 20px;
     }
 
@@ -2420,6 +2445,27 @@ body.modal-open {
     .footer-nav {
         flex-direction: column;
         gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-text {
+        position: static;
+    }
+
+    .reservation-notice {
+        left: auto;
+        right: 18px;
+        top: 75px;
+        bottom: auto;
+        margin-bottom: 0;
+        padding: 12px 16px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .reservation-notice::after {
+        left: 70%;
     }
 }
 
@@ -3116,4 +3162,128 @@ body.modal-open {
         justify-content: space-between;
     }
 
+}
+
+/* ナビゲーション・写真枠・詳細文の表示調整 */
+.nav-menu{position:relative;display:flex;align-items:center}
+.nav .nav-menu-link{display:inline-flex;align-items:center;gap:8px}
+.nav-menu-link::after{content:"";width:5px;height:5px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.nav-dropdown{position:absolute;top:100%;left:50%;width:250px;padding:15px 20px;background:#f8f5ee;color:#2d2925;border:1px solid #ddd5c9;box-shadow:0 16px 30px rgba(0,0,0,.18);transform:translate(-50%,8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s,visibility .2s}
+.nav-menu:hover .nav-dropdown,.nav-menu:focus-within .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+.nav .nav-dropdown a{display:flex;justify-content:space-between;align-items:center;padding:11px 4px;border-bottom:1px solid #ddd5c9;font-size:14px;letter-spacing:.06em}
+.nav .nav-dropdown a:last-child{border-bottom:0}
+.nav .nav-dropdown a:hover,.nav .nav-dropdown a:focus-visible{color:#806b52;opacity:1}
+.nav-dropdown span{color:#806b52}
+.mobile-subnav{display:none}
+.access-photo-frame{padding:12px;border:1px solid #cfc7bb;background:#fff;box-shadow:12px 12px 0 #e8e0d2}
+.access-photo-frame img{height:400px;object-fit:cover}
+.commitment-empty{min-height:550px;background:#f8f5ee}
+.modal-text h2,.modal-details span,.modal-description{white-space:pre-line;overflow-wrap:anywhere}
+.modal-text h2{line-height:1.45;text-wrap:balance}
+.modal-details p{grid-template-columns:74px minmax(0,1fr);gap:10px}
+.menu-section .menu-card h3{text-wrap:balance;overflow-wrap:anywhere}
+.drink-item p{overflow-wrap:anywhere}
+@media(max-width:768px){.mobile-subnav{display:block;background:#eee8de}.mobile-nav .mobile-subnav-link{display:block;padding:11px 25px;font-size:12px;letter-spacing:.08em}.commitment-empty{display:none}.access-photo-frame{padding:8px;box-shadow:8px 8px 0 #e8e0d2}.access-photo-frame img{height:280px}.modal-details p{grid-template-columns:68px minmax(0,1fr);font-size:13px}}
+
+.menu-category{scroll-margin-top:100px}
+
+/* 画像がないアクセス詳細にも写真分の余白を確保する */
+.spot-photo-space {
+    height: 220px;
+    background: #ffffff;
+}
+
+/* 信州の食材は文章を左、余白を右にする */
+.commitment-block-ingredients .commitment-empty {
+    order: 2;
+}
+
+/* 予約の吹き出しをリンクとして使えるようにする */
+.reservation-notice {
+    cursor: pointer;
+    text-decoration: none;
+}
+.reservation-notice:focus-visible {
+    outline: 3px solid #c4a77d;
+    outline-offset: 5px;
+}
+.reservation-section {
+    scroll-margin-top: 80px;
+}
+
+/* メニュー詳細：横長では指定位置で改行し、縦長では一続きに表示 */
+.modal-title-second-line { display: block; }
+.modal-price { white-space: pre-line; }
+@media (orientation: portrait) {
+    .modal-title-second-line { display: inline; }
+    .modal-name-responsive {
+        font-size: clamp(14px, 4.4vw, 27px);
+        white-space: nowrap;
+        overflow-wrap: normal;
+        text-wrap: nowrap;
+    }
+}
+
+/* スマホのメニュー項目は矢印で開閉する */
+.mobile-nav .mobile-menu-row { display:flex; align-items:stretch; border-top:1px solid #ddd5c9; }
+.mobile-nav .mobile-menu-row > a { flex:1; border-top:0; }
+.mobile-subnav-toggle { width:58px; border:0; border-left:1px solid #ddd5c9; background:#f8f5ee; color:#2d2925; font-size:30px; cursor:pointer; }
+.mobile-subnav-toggle[aria-expanded="true"] { background:#eee8de; }
+.mobile-nav .mobile-subnav { display:none; }
+.mobile-nav .mobile-subnav.is-open { display:block; }
+.mobile-nav .mobile-subnav-link { display:block; }
+
+/* 料理名はスマホの縦長表示で指定位置に改行する */
+.menu-title-portrait { display:none; }
+@media (max-aspect-ratio: 3/4.75) {
+    .has-portrait-title .menu-title-regular { display:none; }
+    .has-portrait-title .menu-title-portrait { display:inline; }
+    .modal-text h2.has-portrait-title { font-size:27px; white-space:normal; overflow-wrap:normal; text-wrap:auto; }
+}
+
+/* おすすめカード全体を詳細画面への入口にする */
+.menu-preview .menu-card[data-menu-index] { cursor:pointer; }
+.menu-preview .menu-card[data-menu-index]:focus-visible { outline:3px solid #806b52; outline-offset:4px; }
+
+@media (pointer:fine) {
+    .modal-text h2.desktop-title-no-break {
+        font-size: 27px;
+        white-space: nowrap;
+        overflow-wrap: normal;
+        text-wrap: nowrap;
+    }
+}
+
+@media (pointer:fine) {
+    .menu-section .menu-card h3.desktop-title-no-break,
+    .menu-preview .menu-card h3.desktop-title-no-break {
+        white-space: nowrap;
+        overflow-wrap: normal;
+        text-wrap: nowrap;
+        font-size: 24px;
+    }
+    .menu-section .menu-card h3.desktop-title-exact-lines,
+    .menu-preview .menu-card h3.desktop-title-exact-lines,
+    .modal-text h2.desktop-title-exact-lines {
+        font-size: 24px;
+    }
+    .desktop-title-exact-lines .menu-title-regular {
+        white-space: nowrap;
+        overflow-wrap: normal;
+        text-wrap: nowrap;
+    }
+}
+
+@media (max-width:768px) and (orientation:portrait) {
+    .spot-detail-card .spot-close { top:8px; right:8px; }
+}
+@media (max-width:768px) and (pointer:fine) {
+    .menu-section .menu-card h3.desktop-title-no-break,
+    .menu-section .menu-card h3.desktop-title-exact-lines,
+    .menu-preview .menu-card h3.desktop-title-no-break,
+    .menu-preview .menu-card h3.desktop-title-exact-lines,
+    .modal-text h2.desktop-title-no-break,
+    .modal-text h2.desktop-title-exact-lines {
+        font-size: 21px;
+    }
 }

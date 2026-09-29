@@ -59,27 +59,32 @@
             <nav class="nav">
 
                 <a href="index.html">
-                    HOME
+                    ホーム
                 </a>
 
-                <a href="menu.html">
-                    MENU
-                </a>
+                <div class="nav-menu">
+                    <a class="nav-menu-link" href="menu.html">メニュー</a>
+                    <div class="nav-dropdown" aria-label="メニューの項目">
+                        <a href="menu.html#hamburg">ハンバーグ <span aria-hidden="true">→</span></a>
+                        <a href="menu.html#steak">ステーキ <span aria-hidden="true">→</span></a>
+                        <a href="menu.html#drink">ドリンク <span aria-hidden="true">→</span></a>
+                    </div>
+                </div>
 
                 <a href="commitment.html">
-                    COMMITMENT
+                    こだわり
                 </a>
 
                 <a href="access.html">
-                    ACCESS
+                    アクセス
                 </a>
 
                 <a href="reservation.html">
-                    RESERVATION
+                    ご予約
                 </a>
 
                 <a href="story.html">
-                    STORY
+                    ストーリー
                 </a>
 
             </nav>
@@ -117,27 +122,33 @@
         >
 
             <a href="index.html">
-                HOME
+                ホーム
             </a>
 
-            <a href="menu.html">
-                MENU
-            </a>
+            <div class="mobile-menu-row">
+                <a href="menu.html">メニュー</a>
+                <button class="mobile-subnav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenuSubnav" aria-label="メニューの項目を開く">›</button>
+            </div>
+            <div class="mobile-subnav" id="mobileMenuSubnav" aria-label="メニューの項目">
+                <a class="mobile-subnav-link" href="menu.html#hamburg">ハンバーグ</a>
+                <a class="mobile-subnav-link" href="menu.html#steak">ステーキ</a>
+                <a class="mobile-subnav-link" href="menu.html#drink">ドリンク</a>
+            </div>
 
             <a href="commitment.html">
-                COMMITMENT
+                こだわり
             </a>
 
             <a href="access.html">
-                ACCESS
+                アクセス
             </a>
 
             <a href="reservation.html">
-                RESERVATION
+                ご予約
             </a>
 
             <a href="story.html">
-                STORY
+                ストーリー
             </a>
 
         </nav>
@@ -197,12 +208,12 @@
 
                         <!-- 予約案内 -->
 
-                        <span class="reservation-notice">
+                        <a class="reservation-notice" href="reservation.html#reservation-details">
 
                             ご予約はお電話で<br>
                             お願いいたします
 
-                        </span>
+                        </a>
 
                     </span>
 
@@ -371,7 +382,7 @@
 
                     <!-- 信州ハンバーグ -->
 
-                    <article class="menu-card">
+                    <article class="menu-card" data-menu-index="1" role="button" tabindex="0" aria-label="諏訪のてっぺんハンバーグの詳細を見る">
 
 
                         <img
@@ -407,7 +418,7 @@
 
                     <!-- ステーキ -->
 
-                    <article class="menu-card">
+                    <article class="menu-card" data-menu-index="5" role="button" tabindex="0" aria-label="雄大なたたづまい蓼科牛の詳細を見る">
 
 
                         <img
@@ -633,11 +644,9 @@
 
 
                     <!-- 店舗画像 -->
-
-                    <img
-                        src="images/shop.jpg"
-                        alt="WOODMAN PLUS店舗"
-                    >
+<div class="access-photo-frame">
+    <img src="images/shop.jpg" alt="WOODMAN PLUS店舗">
+</div>
 
 
 
@@ -746,6 +755,136 @@
 
 
     <!-- =========================
+         詳細モーダル
+    ========================= -->
+
+    <div
+        class="menu-modal"
+        id="menuModal"
+    >
+
+        <div class="modal-content">
+
+
+            <!-- 閉じるボタン -->
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                aria-label="閉じる"
+            >
+
+                ×
+
+            </button>
+
+
+
+            <!-- メニュー画像 -->
+
+            <img
+                id="modalImage"
+                src=""
+                alt=""
+            >
+
+
+
+            <!-- メニュー詳細 -->
+
+            <div class="modal-text">
+
+
+                <p
+                    class="modal-category"
+                    id="modalCategory"
+                ></p>
+
+
+                <h2
+                    id="modalName"
+                ></h2>
+
+
+                <p
+                    class="modal-price"
+                    id="modalPrice"
+                ></p>
+
+
+
+                <!-- 詳細情報 -->
+
+                <div class="modal-details">
+
+
+                    <p>
+
+                        <strong>ソース</strong>
+
+                        <span id="modalSauce"></span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>ライス</strong>
+
+                        <span id="modalRice"></span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>サラダ</strong>
+
+                        <span id="modalSalad"></span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>スープ</strong>
+
+                        <span id="modalSoup"></span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>その他</strong>
+
+                        <span id="modalOther"></span>
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- 説明 -->
+
+                <p
+                    class="modal-description"
+                    id="modalDescription"
+                ></p>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
          フッター
     ========================= -->
 
@@ -772,32 +911,32 @@
 
 
                 <a href="index.html">
-                    HOME
+                    ホーム
                 </a>
 
 
                 <a href="menu.html">
-                    MENU
+                    メニュー
                 </a>
 
 
                 <a href="commitment.html">
-                    COMMITMENT
+                    こだわり
                 </a>
 
 
                 <a href="access.html">
-                    ACCESS
+                    アクセス
                 </a>
 
 
                 <a href="reservation.html">
-                    RESERVATION
+                    ご予約
                 </a>
 
 
                 <a href="story.html">
-                    STORY
+                    ストーリー
                 </a>
 
 

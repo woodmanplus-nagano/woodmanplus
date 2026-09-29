@@ -49,27 +49,32 @@
             <nav class="nav">
 
                 <a href="index.html">
-                    HOME
+                    ホーム
                 </a>
 
-                <a href="menu.html">
-                    MENU
-                </a>
+                <div class="nav-menu">
+                    <a class="nav-menu-link" href="menu.html">メニュー</a>
+                    <div class="nav-dropdown" aria-label="メニューの項目">
+                        <a href="menu.html#hamburg">ハンバーグ <span aria-hidden="true">→</span></a>
+                        <a href="menu.html#steak">ステーキ <span aria-hidden="true">→</span></a>
+                        <a href="menu.html#drink">ドリンク <span aria-hidden="true">→</span></a>
+                    </div>
+                </div>
 
                 <a href="commitment.html">
-                    COMMITMENT
+                    こだわり
                 </a>
 
                 <a href="story.html">
-                    STORY
+                    ストーリー
                 </a>
 
                 <a href="access.html">
-                    ACCESS
+                    アクセス
                 </a>
 
                 <a href="reservation.html">
-                    RESERVATION
+                    ご予約
                 </a>
 
             </nav>
@@ -100,27 +105,33 @@
         >
 
             <a href="index.html">
-                HOME
+                ホーム
             </a>
 
-            <a href="menu.html">
-                MENU
-            </a>
+            <div class="mobile-menu-row">
+                <a href="menu.html">メニュー</a>
+                <button class="mobile-subnav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenuSubnav" aria-label="メニューの項目を開く">›</button>
+            </div>
+            <div class="mobile-subnav" id="mobileMenuSubnav" aria-label="メニューの項目">
+                <a class="mobile-subnav-link" href="menu.html#hamburg">ハンバーグ</a>
+                <a class="mobile-subnav-link" href="menu.html#steak">ステーキ</a>
+                <a class="mobile-subnav-link" href="menu.html#drink">ドリンク</a>
+            </div>
 
             <a href="commitment.html">
-                COMMITMENT
+                こだわり
             </a>
 
             <a href="story.html">
-                STORY
+                ストーリー
             </a>
 
             <a href="access.html">
-                ACCESS
+                アクセス
             </a>
 
             <a href="reservation.html">
-                RESERVATION
+                ご予約
             </a>
 
         </nav>
@@ -287,16 +298,9 @@
              信州の食材
         ========================= -->
 
-        <section class="commitment-block commitment-block-reverse">
+        <section class="commitment-block commitment-block-text-only commitment-block-ingredients">
 
-            <div class="commitment-image">
-
-                <img
-                    src="images/commitment-food.jpg"
-                    alt="信州の食材"
-                >
-
-            </div>
+            <div class="commitment-empty" aria-hidden="true"></div>
 
 
             <div class="commitment-text">
@@ -539,16 +543,9 @@
              お米
         ========================= -->
 
-        <section class="commitment-block">
+        <section class="commitment-block commitment-block-text-only">
 
-            <div class="commitment-image">
-
-                <img
-                    src="images/commitment-kome.jpg"
-                    alt="茅野産ミルキークイーン"
-                >
-
-            </div>
+            <div class="commitment-empty" aria-hidden="true"></div>
 
 
             <div class="commitment-text">
@@ -637,8 +634,8 @@
             <div class="commitment-image">
 
                 <img
-                    src="images/ribloin.jpg"
-                    alt="蓼科牛サーロイン"
+                    src="images/steak01.jpg"
+                    alt="ステーキ"
                 >
 
             </div>
@@ -866,27 +863,27 @@
             <nav class="footer-nav">
 
                 <a href="index.html">
-                    HOME
+                    ホーム
                 </a>
 
                 <a href="menu.html">
-                    MENU
+                    メニュー
                 </a>
 
                 <a href="commitment.html">
-                    COMMITMENT
+                    こだわり
                 </a>
 
                 <a href="story.html">
-                    STORY
+                    ストーリー
                 </a>
 
                 <a href="access.html">
-                    ACCESS
+                    アクセス
                 </a>
 
                 <a href="reservation.html">
-                    RESERVATION
+                    ご予約
                 </a>
 
             </nav>

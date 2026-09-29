@@ -6,11 +6,25 @@ const menuButton = document.getElementById("menuButton");
 const mobileNav = document.getElementById("mobileNav");
 
 if (menuButton && mobileNav) {
+    const subnavToggle = mobileNav.querySelector(".mobile-subnav-toggle");
+    const subnav = mobileNav.querySelector(".mobile-subnav");
+    const setSubnavOpen = (open) => {
+        if (!subnavToggle || !subnav) return;
+        subnav.classList.toggle("is-open", open);
+        subnavToggle.setAttribute("aria-expanded", String(open));
+        subnavToggle.setAttribute("aria-label", open ? "メニューの項目を閉じる" : "メニューの項目を開く");
+    };
+    if (subnavToggle) {
+        subnavToggle.addEventListener("click", () => {
+            setSubnavOpen(subnavToggle.getAttribute("aria-expanded") !== "true");
+        });
+    }
 
     menuButton.addEventListener("click", () => {
 
         menuButton.classList.toggle("active");
         mobileNav.classList.toggle("active");
+        if (!mobileNav.classList.contains("active")) setSubnavOpen(false);
 
     });
 
@@ -23,6 +37,7 @@ if (menuButton && mobileNav) {
 
             menuButton.classList.remove("active");
             mobileNav.classList.remove("active");
+            setSubnavOpen(false);
 
         });
 
@@ -51,7 +66,7 @@ const menus = [
         soup: "コーンだらけのコーンスープ",
         other: "なし",
         description:
-            "信州和牛、信州牛、蓼科豚を使用した、信州の食材にこだわったWoodmanPlus自慢のハンバーグです。"
+            "信州和牛、信州牛、蓼科豚を使用した、<br>信州の食材にこだわったWoodmanPlus自慢のハンバーグです。"
     },
 
     {
@@ -122,7 +137,7 @@ const menus = [
         type: "steak",
         name: "雄大なたたづまい蓼科牛",
         image: "images/steak02.jpg",
-        price: "¥6500（コース） or　¥5500（ライスセット）",
+        price: "¥6500（コース）<br>or ¥5500（ライスセット）",
         sauce: "安曇野産わさび醤油<br>信州産山わさび香る手造りレフォール<br>信州伝統野菜ぼたんこしょう手作り味噌<br>雪塩<br>レモン",
         rice: "蓼科産ミルキークイーン米",
         salad: "蓼科サラダ（コースの場合） or　なし",
@@ -159,7 +174,7 @@ const menus = [
         soup: "コーンだらけのコーンスープ",
         other: "京都丸久小山園のお抹茶～小布施栗らくがん付～",
         description:
-            "こちらの収益は施設にいる子供たちを笑顔にする為のクリスマスプロジェクトに使わせて頂きます。なおその様子は当店のインスタ及びHPにてご報告させて頂きます。"
+            "こちらの収益は施設にいる子供たちを笑顔にする為の<br>クリスマスプロジェクトに使わせて頂きます。<br>なおその様子は当店のインスタ及びHPにてご報告させて頂きます。"
     }
 
 ];
@@ -269,6 +284,40 @@ const steakMenu =
     document.getElementById("steakMenu");
 
 
+function formatMenuText(value) {
+    return String(value).replace(/<br\s*\/?>/gi, "\n").trim();
+}
+
+function fillMenuTitle(element, name, inModal = false) {
+    if (!element) return;
+    const formatted = formatMenuText(name);
+    const key = formatted.replace(/\s+/g, " ").trim();
+    const layouts = {
+        "諏訪のてっぺんハンバーグ": { mobile: ["諏訪のてっぺん", "ハンバーグ"] },
+        "八ヶ岳の雪どけカマンバーグ": { wideModal: ["八ヶ岳の雪どけ", "カマンバーグ"], mobile: ["八ヶ岳の雪どけ", "カマンバーグ"] },
+        "雄大なたたづまい蓼科牛": { mobile: ["雄大なたたづまい", "蓼科牛"] },
+        "信州が誇る幻のサーロイン 信州和牛": { mobile: ["信州が誇る", "幻のサーロイン", "信州和牛"] },
+        "信州のてっぺん 信州和牛5つ星シャトーブリアン": { mobile: ["信州のてっぺん", "信州和牛5つ星", "シャトーブリアン"] }
+    };
+    const layout = layouts[key];
+    const makeLines = (parts, className) => {
+        const span = document.createElement("span");
+        span.className = className;
+        parts.forEach((part, i) => {
+            if (i) span.append(document.createElement("br"));
+            span.append(document.createTextNode(part));
+        });
+        return span;
+    };
+    const regularParts = inModal && layout && layout.wideModal ? layout.wideModal : formatted.split("\n");
+    const parts = [makeLines(regularParts, "menu-title-regular")];
+    if (layout && layout.mobile) parts.push(makeLines(layout.mobile, "menu-title-portrait"));
+    element.classList.toggle("has-portrait-title", Boolean(layout && layout.mobile));
+    element.classList.toggle("desktop-title-no-break", key === "諏訪のてっぺんハンバーグ" || key === "雄大なたたづまい蓼科牛");
+    element.classList.toggle("desktop-title-exact-lines", key === "信州が誇る幻のサーロイン 信州和牛" || key === "信州のてっぺん 信州和牛5つ星シャトーブリアン");
+    element.replaceChildren(...parts);
+}
+
 menus.forEach((menu, index) => {
 
     const card =
@@ -282,7 +331,7 @@ menus.forEach((menu, index) => {
 
             <img
                 src="${menu.image}"
-                alt="${menu.name}"
+                alt="${formatMenuText(menu.name).replace(/\n/g, " ")}"
             >
 
         </div>
@@ -314,6 +363,8 @@ menus.forEach((menu, index) => {
 
     `;
 
+
+    fillMenuTitle(card.querySelector("h3"), menu.name);
 
 if (menu.type === "hamburg" && hamburgMenu) {
 
@@ -501,67 +552,45 @@ const modalDescription =
    詳細ボタン
 ========================= */
 
-document.addEventListener("click", (event) => {
-
-    if (
-        !event.target.classList.contains(
-            "detail-button"
-        )
-    ) {
-        return;
-    }
-
-
-    const index =
-        Number(event.target.dataset.index);
-
-    const menu =
-        menus[index];
-
-
-    modalImage.src =
-        menu.image;
-
-    modalImage.alt =
-        menu.name;
-
-
-    modalCategory.textContent =
-        menu.category;
-
-    modalName.textContent =
-        menu.name;
-
-    modalPrice.textContent =
-        menu.price;
-
-    modalSauce.innerHTML =
-        menu.sauce;
-
-    modalRice.textContent =
-        menu.rice;
-
-    modalSalad.textContent =
-        menu.salad;
-
-    modalSoup.textContent =
-        menu.soup;
-
-    modalOther.textContent =
-        menu.other;
-
-    modalDescription.textContent =
-        menu.description;
-
-
-    modal.classList.add("show");
-
-    document.body.classList.add(
-        "modal-open"
-    );
-
+document.querySelectorAll(".menu-preview .menu-card[data-menu-index]").forEach((card) => {
+    const menu = menus[Number(card.dataset.menuIndex)];
+    if (menu) fillMenuTitle(card.querySelector("h3"), menu.name);
 });
 
+function showMenuDetails(index) {
+    const menu = menus[index];
+    if (!menu || !modal) return;
+    modalImage.src = menu.image;
+    modalImage.alt = formatMenuText(menu.name).replace(/\n/g, " ");
+    modalCategory.textContent = menu.category;
+    fillMenuTitle(modalName, menu.name, true);
+    modalPrice.textContent = formatMenuText(menu.price);
+    modalSauce.textContent = formatMenuText(menu.sauce);
+    modalRice.textContent = formatMenuText(menu.rice);
+    modalSalad.textContent = formatMenuText(menu.salad);
+    modalSoup.textContent = formatMenuText(menu.soup);
+    modalOther.textContent = formatMenuText(menu.other);
+    modalDescription.textContent = formatMenuText(menu.description);
+    modal.classList.add("show");
+    document.body.classList.add("modal-open");
+}
+
+document.addEventListener("click", (event) => {
+    const detailButton = event.target.closest(".detail-button");
+    if (detailButton) {
+        showMenuDetails(Number(detailButton.dataset.index));
+        return;
+    }
+    const previewCard = event.target.closest(".menu-preview .menu-card[data-menu-index]");
+    if (previewCard) showMenuDetails(Number(previewCard.dataset.menuIndex));
+});
+
+document.addEventListener("keydown", (event) => {
+    const previewCard = event.target.closest(".menu-preview .menu-card[data-menu-index]");
+    if (!previewCard || (event.key !== "Enter" && event.key !== " ")) return;
+    event.preventDefault();
+    showMenuDetails(Number(previewCard.dataset.menuIndex));
+});
 
 /* =========================
    モーダルを閉じる
@@ -627,31 +656,31 @@ const spots = {
 
     "chino-station": {
         name: "茅野駅",
-        image: "images/chino-station.jpg",
+        image: null,
         time: "車で約3分"
     },
 
     "tateshina-lake": {
         name: "蓼科湖",
-        image: "images/tateshina-lake.jpg",
+        image: null,
         time: "車で約23分"
     },
 
     "shirakaba-lake": {
         name: "白樺湖",
-        image: "images/shirakaba-lake.jpg",
+        image: null,
         time: "車で約27分"
     },
 
     "kurumayama": {
         name: "車山高原",
-        image: "images/kurumayama.jpg",
+        image: null,
         time: "車で約31分"
     },
 
     "kirigamine": {
         name: "霧ヶ峰・富士見台",
-        image: "images/kirigamine.jpg",
+        image: null,
         time: "車で約36分"
     },
 
@@ -663,25 +692,25 @@ const spots = {
 
     "tateshina-mountain": {
         name: "蓼科山登山口",
-        image: "images/tateshina-mountain.jpg",
+        image: null,
         time: "車で約45分"
     },
 
     "suwa-inter": {
         name: "諏訪インター",
-        image: "images/suwa-inter.jpg",
+        image: null,
         time: "車で約9分"
     },
 
     "suwa-taisha": {
         name: "諏訪大社上社前宮",
-        image: "images/suwa-taisha.jpg",
+        image: null,
         time: "車で約9分"
     },
 
     "fujimi": {
         name: "富士見パノラマリゾート",
-        image: "images/fujimi.jpg",
+        image: null,
         time: "車で約20分"
     },
 
@@ -732,10 +761,7 @@ mapPoints.forEach((point) => {
 
 
                 <!-- 写真 -->
-                <img
-                    src="${spot.image}"
-                    alt="${spot.name}"
-                >
+                ${spot.image ? '<img src="' + spot.image + '" alt="' + spot.name + '">' : '<div class="spot-photo-space" aria-hidden="true"></div>'}
 
 
                 <!-- 詳細 -->
@@ -814,7 +840,7 @@ const recommendPosts = [
 
         text: "WOODMAN PLUSおすすめのハンバーグをぜひお楽しみください。",
 
-        image: "images/recommend.jpg"
+        image: "images/hamburg01-v2.jpg"
     }
 
 ];

@@ -48,12 +48,19 @@
         <!-- PC用ナビゲーション -->
 
 <nav class="nav">
-    <a href="index.html">HOME</a>
-    <a href="menu.html">MENU</a>
-    <a href="commitment.html">COMMITMENT</a>
-    <a href="story.html">STORY</a>
-    <a href="access.html">ACCESS</a>
-    <a href="reservation.html">RESERVATION</a>
+    <a href="index.html">ホーム</a>
+    <div class="nav-menu">
+        <a class="nav-menu-link" href="menu.html">メニュー</a>
+        <div class="nav-dropdown" aria-label="メニューの項目">
+            <a href="menu.html#hamburg">ハンバーグ <span aria-hidden="true">→</span></a>
+            <a href="menu.html#steak">ステーキ <span aria-hidden="true">→</span></a>
+            <a href="menu.html#drink">ドリンク <span aria-hidden="true">→</span></a>
+        </div>
+    </div>
+    <a href="commitment.html">こだわり</a>
+    <a href="story.html">ストーリー</a>
+    <a href="access.html">アクセス</a>
+    <a href="reservation.html">ご予約</a>
 </nav>
 
 
@@ -76,12 +83,20 @@
 
     <!-- スマホ用メニュー -->
 <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html">HOME</a>
-    <a href="menu.html">MENU</a>
-    <a href="commitment.html">COMMITMENT</a>
-    <a href="story.html">STORY</a>
-    <a href="access.html">ACCESS</a>
-    <a href="reservation.html">RESERVATION</a>
+    <a href="index.html">ホーム</a>
+    <div class="mobile-menu-row">
+        <a href="menu.html">メニュー</a>
+        <button class="mobile-subnav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenuSubnav" aria-label="メニューの項目を開く">›</button>
+    </div>
+    <div class="mobile-subnav" id="mobileMenuSubnav" aria-label="メニューの項目">
+        <a class="mobile-subnav-link" href="menu.html#hamburg">ハンバーグ</a>
+        <a class="mobile-subnav-link" href="menu.html#steak">ステーキ</a>
+        <a class="mobile-subnav-link" href="menu.html#drink">ドリンク</a>
+    </div>
+    <a href="commitment.html">こだわり</a>
+    <a href="story.html">ストーリー</a>
+    <a href="access.html">アクセス</a>
+    <a href="reservation.html">ご予約</a>
 </nav>
 
 </header>
@@ -121,7 +136,7 @@
          予約案内
     ========================= -->
 
-    <section class="reservation-section">
+    <section class="reservation-section" id="reservation-details">
 
         <div class="reservation-inner">
 
@@ -274,12 +289,12 @@
 
 
 <nav class="footer-nav">
-    <a href="index.html">HOME</a>
-    <a href="menu.html">MENU</a>
-    <a href="commitment.html">COMMITMENT</a>
-    <a href="story.html">STORY</a>
-    <a href="access.html">ACCESS</a>
-    <a href="reservation.html">RESERVATION</a>
+    <a href="index.html">ホーム</a>
+    <a href="menu.html">メニュー</a>
+    <a href="commitment.html">こだわり</a>
+    <a href="story.html">ストーリー</a>
+    <a href="access.html">アクセス</a>
+    <a href="reservation.html">ご予約</a>
 </nav>
 
 
