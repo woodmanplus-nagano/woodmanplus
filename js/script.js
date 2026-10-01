@@ -640,6 +640,19 @@ document.addEventListener("keydown", (event) => {
    周辺アクセスマップ
 ========================= */
 
+// 決めた名前で images フォルダに写真を置くだけで表示できます。
+// 未登録・読み込み失敗時は、写真の代わりに空白を表示します。
+function loadReplaceablePhotos(root = document) {
+    root.querySelectorAll("img[data-image-src]").forEach((img) => {
+        const frame = img.parentElement;
+        img.addEventListener("load", () => frame.classList.add("image-ready"));
+        img.addEventListener("error", () => frame.classList.remove("image-ready"));
+        img.src = img.dataset.imageSrc;
+    });
+}
+
+loadReplaceablePhotos();
+
 const spots = {
 
     "takashima": {
@@ -656,31 +669,31 @@ const spots = {
 
     "chino-station": {
         name: "茅野駅",
-        image: null,
+        image: "images/chino-station.jpg",
         time: "車で約3分"
     },
 
     "tateshina-lake": {
         name: "蓼科湖",
-        image: null,
+        image: "images/tateshina-lake.jpg",
         time: "車で約23分"
     },
 
     "shirakaba-lake": {
         name: "白樺湖",
-        image: null,
+        image: "images/shirakaba-lake.jpg",
         time: "車で約27分"
     },
 
     "kurumayama": {
         name: "車山高原",
-        image: null,
+        image: "images/kurumayama.jpg",
         time: "車で約31分"
     },
 
     "kirigamine": {
         name: "霧ヶ峰・富士見台",
-        image: null,
+        image: "images/kirigamine.jpg",
         time: "車で約36分"
     },
 
@@ -692,25 +705,25 @@ const spots = {
 
     "tateshina-mountain": {
         name: "蓼科山登山口",
-        image: null,
+        image: "images/tateshina-mountain.jpg",
         time: "車で約45分"
     },
 
     "suwa-inter": {
         name: "諏訪インター",
-        image: null,
+        image: "images/suwa-inter.jpg",
         time: "車で約9分"
     },
 
     "suwa-taisha": {
         name: "諏訪大社上社前宮",
-        image: null,
+        image: "images/suwa-taisha.jpg",
         time: "車で約9分"
     },
 
     "fujimi": {
         name: "富士見パノラマリゾート",
-        image: null,
+        image: "images/fujimi.jpg",
         time: "車で約20分"
     },
 
@@ -761,7 +774,9 @@ mapPoints.forEach((point) => {
 
 
                 <!-- 写真 -->
-                ${spot.image ? '<img src="' + spot.image + '" alt="' + spot.name + '">' : '<div class="spot-photo-space" aria-hidden="true"></div>'}
+                <div class="spot-photo-space replaceable-photo">
+                    <img data-image-src="${spot.image}" alt="${spot.name}">
+                </div>
 
 
                 <!-- 詳細 -->
@@ -788,6 +803,7 @@ mapPoints.forEach((point) => {
 
         /* ポップアップを表示 */
 
+        loadReplaceablePhotos(spotDetail);
         spotDetail.classList.add("active");
 
 
