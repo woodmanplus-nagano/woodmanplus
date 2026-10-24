@@ -564,7 +564,7 @@ function showMenuDetails(index) {
     modalImage.alt = formatMenuText(menu.name).replace(/\n/g, " ");
     modalCategory.textContent = menu.category;
     fillMenuTitle(modalName, menu.name, true);
-    modalPrice.textContent = formatMenuText(menu.price);
+    modalPrice.innerHTML = formatMenuText(menu.price);
     modalSauce.textContent = formatMenuText(menu.sauce);
     modalRice.textContent = formatMenuText(menu.rice);
     modalSalad.textContent = formatMenuText(menu.salad);
