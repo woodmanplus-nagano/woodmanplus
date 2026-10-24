@@ -187,37 +187,37 @@ const drinks = [
 
     {
         name: "たてしな珈琲(ホット)",
-        price: "1,200円(税込み)",
+        price: "1,200円<span class='tax-price'>(税込み)</span>",
         description: "たてしな天然水を使用。<br>まろやかな水が珈琲の香りとコクを引き立てる一杯です。"
     },
 
     {
         name: "丸山珈琲(アイス)",
-        price: "980円(税込み)",
+        price: "980円<span class='tax-price'>(税込み)</span>",
         description: "世界一のバリスタを育てた珈琲ブランド。<br>限られた店舗でしか味わえない特別な一杯です"
     },
 
     {
         name: "たてしなパープルジュース（期間限定）",
-        price: "880円(税込み)",
+        price: "880円<span class='tax-price'>(税込み)</span>",
         description: "希少なナガノパープルとたてしな天然水から生まれたオリジナルジュース。<br>芳醇な香りと濃厚な甘みを楽しめるここでしか味わえない一杯です。"
     },
 
     {
         name: "諏訪かりんジュース",
-        price: "550円(税込み)",
+        price: "550円<span class='tax-price'>(税込み)</span>",
         description: "6代目が守り続ける諏訪名産かりんを使用し、<br>爽やかな香りとやさしい甘みが広がる諏訪らしい一杯です。"
     },
 
     {
         name: "信州りんごジュース",
-        price: "770円(税込み)",
+        price: "770円<span class='tax-price'>(税込み)</span>",
         description: "信州りんごのおいしさをぎゅっと閉じ込めたジュース。<br>豊かな甘みと、すっきりとした後味をお楽しみください。"
     },
 
     {
         name: "信州牛乳",
-        price: "880円(税込み)",
+        price: "880円<span class='tax-price'>(税込み)</span>",
         description: "信州の豊かな自然の中で育まれた牛乳。<br>まろやかでコク深く素材そのものの濃厚な味わいを楽しめます。"
     }
 ];
@@ -226,13 +226,13 @@ const winterDrinks = [
 
     {
         name: "たてしな紅茶",
-        price: "660円(税込み)",
+        price: "660円<span class='tax-price'>(税込み)</span>",
         description: "農薬を使わず、大切に育てられた紅茶。<br>たてしな天然水が優しい香りと澄んだ味わいを引き出します。"
     },
 
     {
         name: "たてしな延命茶",
-        price: "330円(税込み)",
+        price: "330円<span class='tax-price'>(税込み)</span>",
         description: "たてしな天然水を使用した黒姫和漢超命茶。<br>香ばしく、すっきりとした味わいでお食事中におすすめです。"
     }
 
@@ -242,31 +242,31 @@ const alcohols = [
 
     {
         name: "クラフトビール　よなよなエール",
-        price: "660円(税込み)",
+        price: "660円<span class='tax-price'>(税込み)</span>",
         description: "ナショナルピアコンペティション国際ビール大賞を受賞。"
     },
 
     {
         name: "クラフトビール　山の上ニューイ",
-        price: "660円(税込み)",
+        price: "660円<span class='tax-price'>(税込み)</span>",
         description: "ジャパンプレート・ピアアワーズ2022銀賞。"
     },
 
     {
         name: "ノンアルコールビール",
-        price: "660円(税込み)",
+        price: "660円<span class='tax-price'>(税込み)</span>",
         description: "アルコール0.00%で、ビールの美味しさをそのままに。"
     },
 
     {
         name: "諏訪の地酒　純米辛口「神渡」（一合）",
-        price: "770円(税込み)",
+        price: "770円<span class='tax-price'>(税込み)</span>",
         description: "諏訪の恵まれた清らかな水が育む辛口。<br>すっきりとした飲み口で、お肉料理にもよく合います。"
     },
 
     {
         name: "信州ワイン（グラス）",
-        price: "880円(税込み)",
+        price: "880円<span class='tax-price'>(税込み)</span>",
         description: "信州の風土が育んだ、食事に寄り添う一杯。"
     }
 
