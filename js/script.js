@@ -59,7 +59,7 @@ const menus = [
         type: "hamburg",
         name: "長野県産にこだわった信州100%ハンバーグ",
         image: "images/hamburg01.jpg",
-        price: "3364(税込み3700)",
+        price: "3364<span class='tax-price'>(税込み3700)</span>",
         sauce: "信州ワインを使用したオリジナルデミグラスソース<br>隠し味に信州リンゴを使用した手作り和風玉ねぎソース<br>信州産白い山わさびの香りを活かした旨味ソース（辛くないです）<br>",
         rice: "蓼科産ミルキークイーン米",
         salad: "蓼科サラダ",
