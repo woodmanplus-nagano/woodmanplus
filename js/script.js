@@ -74,11 +74,11 @@ const menus = [
         type: "hamburg",
         name: "諏訪のてっぺんハンバーグ",
         image: "images/hamburg02.jpg",
-        price: "4364<span class='tax-price'>(税込み4800)</span>（コース）<br>or 3546<span class='tax-price'>(税込み3900)</span>（ライスセット）",
+        price: "4364<span class='tax-price'>(税込み4800)</span>（コース）<br>3546<span class='tax-price'>(税込み3900)</span>（ライスセット）",
         sauce: "信州産山わさび香る手作りレフォール（辛くないです）<br>信州伝統野菜ぼたんこしょうの手作り味噌<br>雪塩",
         rice: "蓼科産ミルキークイーン米",
-        salad: "蓼科サラダ（コースの場合） or　なし",
-        soup: "コーンだらけのコーンスープ（コースの場合） or　なし",
+        salad: "蓼科サラダ（コースの場合）",
+        soup: "コーンだらけのコーンスープ（コースの場合）",
         other: "なし",
         description:
             "信州リンゴで育った上質牛100%　粗挽き仕立て"
@@ -137,11 +137,11 @@ const menus = [
         type: "steak",
         name: "雄大なたたづまい蓼科牛",
         image: "images/steak02.jpg",
-        price: "5910<span class='tax-price'>(税込み6500)</span>（コース）<br>or 5000<span class='tax-price'>(税込み5500)</span>（ライスセット）",
+        price: "5910<span class='tax-price'>(税込み6500)</span>（コース）<br>5000<span class='tax-price'>(税込み5500)</span>（ライスセット）",
         sauce: "安曇野産わさび醤油<br>信州産山わさび香る手作りレフォール<br>信州伝統野菜ぼたんこしょうの手作り味噌<br>雪塩<br>レモン",
         rice: "蓼科産ミルキークイーン米",
-        salad: "蓼科サラダ（コースの場合） or　なし",
-        soup: "コーンだらけのコーンスープ（コースの場合） or　なし",
+        salad: "蓼科サラダ（コースの場合）",
+        soup: "コーンだらけのコーンスープ（コースの場合）",
         other: "なし",
         description:
             "東京の高級店向けの部位をウッドマンplus仕様でご用意しています<br>お肉のサイズや厚さは常に違う為大判の際はカットせずそのままご提供させて頂きます"
