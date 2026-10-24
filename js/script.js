@@ -74,11 +74,11 @@ const menus = [
         type: "hamburg",
         name: "諏訪のてっぺんハンバーグ",
         image: "images/hamburg02.jpg",
-        price: "¥4200",
+        price: "¥4800（コース）<br>or ¥3900（ライスセット）",
         sauce: "信州産山わさび香るレフォール（辛くないです）<br>手作りぼたんこしょう味噌<br>雪塩",
         rice: "蓼科産ミルキークイーン米",
-        salad: "蓼科サラダ",
-        soup: "なし",
+        salad: "蓼科サラダ（コースの場合） or　なし",
+        soup: "コーンだらけのコーンスープ（コースの場合） or　なし",
         other: "なし",
         description:
             "信州リンゴで育った上質牛100%　粗挽き仕立て"
