@@ -1372,6 +1372,35 @@ body.modal-open {
 }
 
 
+/* ---------- 周辺ホテルからのアクセス ---------- */
+.hotel-access { padding: 90px 24px; background: #f8f5ee; scroll-margin-top: 100px; }
+.hotel-access-inner { max-width: 960px; margin: 0 auto; }
+.hotel-access .section-label { text-align: center; margin-bottom: 12px; }
+.hotel-access h2 { font-size: clamp(24px, 4vw, 38px); text-align: center; margin-bottom: 24px; line-height: 1.5; }
+.hotel-access-intro, .hotel-access-location { text-align: center; line-height: 1.9; }
+.hotel-access-location { margin: 16px 0 32px; }
+.hotel-access-group { border-top: 1px solid #cfc3b2; }
+.hotel-access-group:last-of-type { border-bottom: 1px solid #cfc3b2; }
+.hotel-access-group summary { padding: 24px 4px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 20px; font-weight: bold; line-height: 1.6; cursor: pointer; list-style: none; }
+.hotel-access-group summary::-webkit-details-marker { display: none; }
+.hotel-access-toggle { width: 12px; height: 12px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); flex-shrink: 0; margin: -6px 8px 0 0; }
+.hotel-access-group[open] .hotel-access-toggle { transform: rotate(225deg); margin-top: 6px; }
+.hotel-access-list { padding: 0 4px 24px; }
+.hotel-access-card { padding: 24px 0; border-top: 1px solid #e2d9cb; }
+.hotel-access-card h3 { font-size: 19px; line-height: 1.6; margin-bottom: 12px; }
+.hotel-access-card p, .hotel-access-train { line-height: 1.9; margin-bottom: 16px; }
+.hotel-access-card .text-link { display: inline-block; max-width: 100%; line-height: 1.8; overflow-wrap: anywhere; }
+.hotel-access-train { padding: 20px; background: #eee8de; border-radius: 4px; }
+.hotel-access-note { margin-top: 24px; font-size: 13px; color: #62594f; line-height: 1.9; }
+.hotel-access-home-link { display: block; width: fit-content; max-width: 100%; margin-top: 16px; line-height: 1.8; }
+.hotel-access-group summary:focus-visible, .hotel-access a:focus-visible { outline: 3px solid #806b52; outline-offset: 5px; }
+.hotel-access-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (max-width: 600px) {
+    .hotel-access { padding: 60px 20px; }
+    .hotel-access-group summary { font-size: 17px; padding: 22px 0; }
+    .hotel-access-card h3 { font-size: 18px; }
+}
+
 /* ---------- 営業カレンダー ---------- */
 
 .business-calendar {
